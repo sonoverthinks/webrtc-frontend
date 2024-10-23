@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="flex h-screen">
       <SideNav />
-      <div className="flex-1 flex flex-col">
+      <div className="flex flex-col flex-1">
         <Content />
         <Control />
       </div>

@@ -1,15 +1,9 @@
-// import Call from "./svg/Call";
-// import HangUp from "./svg/HangUp";
 import SignOut from "./svg/Signout";
-// import { fetchWithToken } from "../utils/fetchWithToken";
-
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
 import { SocketContext } from "../SocketContext";
-// import copy from "copy-to-clipboard";
 
-// eslint-disable-next-line react/prop-types
-const SideNav = ({ children }) => {
+const SideNav = () => {
   const context = useContext(AuthContext);
   const { logout } = context;
   const {
@@ -21,7 +15,6 @@ const SideNav = ({ children }) => {
     isInGroupChat,
     joinActiveListAs,
     leaveActiveList,
-    // testCall,
   } = useContext(SocketContext);
   return (
     <div className="w-[400px] border-r bg-slate-100">
@@ -81,7 +74,6 @@ const SideNav = ({ children }) => {
                 </div>
               </div>
             </form>
-            {children}
           </div>
         </div>
       </div>
