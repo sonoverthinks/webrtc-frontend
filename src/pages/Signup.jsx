@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -36,6 +38,7 @@ const Signup = () => {
 
       // Signup successful, redirect to login page
       // window.location.href = '/login';
+      navigate("/dashboard");
     } catch (error) {
       setError(error.message);
     }
