@@ -41,6 +41,7 @@ const Signup = () => {
 
       // Signup successful, redirect to login page
       // window.location.href = '/login';
+      navigate("/dashboard");
     } catch (error) {
       setError(error.message);
     }
