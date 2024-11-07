@@ -39,7 +39,8 @@ const Signup = () => {
         throw new Error(data.message);
       }
 
-      navigate("/dashboard");
+      // Signup successful, redirect to login page
+      // window.location.href = '/login';
     } catch (error) {
       setError(error.message);
     }
