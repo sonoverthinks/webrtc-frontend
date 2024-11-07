@@ -21,13 +21,16 @@ const Signin = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
+      const response = await fetch(
+        "https://webrtc-backend-5rhc.onrender.com/api/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        }
+      );
 
       const data = await response.json();
       console.log("🚀 ~ handleSubmit ~ data:", data);
@@ -49,7 +52,9 @@ const Signin = () => {
       setError("Error logging in");
     }
   };
-
+  const handleSignupClick = () => {
+    navigate("/signup");
+  };
   return (
     <div className="w-full max-w-md mx-auto mt-8 mb-8">
       <div className="px-8 py-6 bg-white rounded-lg shadow-md">
@@ -97,6 +102,17 @@ const Signin = () => {
             Sign In
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <p className="text-sm text-gray-600">
+            Don&apos;t have an account?{" "}
+            <button
+              onClick={handleSignupClick}
+              className="font-medium text-blue-600 transition-colors duration-300 hover:text-blue-500 focus:outline-none focus:underline"
+            >
+              Sign up here
+            </button>
+          </p>
+        </div>
       </div>
     </div>
   );

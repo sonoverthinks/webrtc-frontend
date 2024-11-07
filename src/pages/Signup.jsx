@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -17,16 +19,19 @@ const Signup = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:3000/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
+      const response = await fetch(
+        "https://webrtc-backend-5rhc.onrender.com/api/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username,
+            password,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -34,8 +39,7 @@ const Signup = () => {
         throw new Error(data.message);
       }
 
-      // Signup successful, redirect to login page
-      // window.location.href = '/login';
+      navigate("/dashboard");
     } catch (error) {
       setError(error.message);
     }

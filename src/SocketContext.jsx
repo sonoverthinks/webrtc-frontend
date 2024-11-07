@@ -4,7 +4,7 @@ import Peer from "simple-peer/simplepeer.min.js";
 
 const SocketContext = createContext();
 
-const socket = io("http://localhost:3000");
+const socket = io("https://webrtc-backend-5rhc.onrender.com");
 // const socket = io("https://warm-wildwood-81069.herokuapp.com");
 
 // eslint-disable-next-line react/prop-types

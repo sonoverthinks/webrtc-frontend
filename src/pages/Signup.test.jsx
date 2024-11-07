@@ -62,7 +62,7 @@ describe("Signup Component", () => {
 
     // Verify API was called
     expect(mockFetch).toHaveBeenCalledWith(
-      "http://localhost:3000/api/register",
+      "https://webrtc-backend-5rhc.onrender.com/api/register",
       expect.any(Object)
     );
   });
