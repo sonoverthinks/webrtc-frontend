@@ -25,11 +25,25 @@ const SocketContextProvider = ({ children }) => {
 
   useEffect(() => {
     navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
+      .getUserMedia({
+        video: true,
+        audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true,
+          enabled: true, // Explicitly enable audio
+        },
+      })
       .then((currentStream) => {
+        // Ensure audio is enabled
+        const audioTrack = currentStream.getAudioTracks()[0];
+        if (audioTrack) {
+          audioTrack.enabled = true;
+        }
         setStream(currentStream);
 
         myVideo.current.srcObject = currentStream;
+        myVideo.current.muted = false;
       });
 
     socket.on("connect", () => {
